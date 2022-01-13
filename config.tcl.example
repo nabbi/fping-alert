@@ -1,0 +1,16 @@
+
+# list of hostnames or ip address
+set nodes "server1 server2 router 1.2.3.4"
+
+# localized site name, if you have multiple instances running
+set site "house"
+
+# sendmail recipients
+set to_email "home@example.net, work@example.com"
+set to_sms "1115551234@phone.mobi"
+
+# from where should the emails be sent as
+set from_email "${site}-alerts@example.net"
+
+# location of sqlite database
+set database ~/.pinger.db
