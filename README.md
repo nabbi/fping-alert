@@ -4,5 +4,5 @@ It uses SQLite to track fping results for throttling the sendmail and syslog eve
 
 ## crontab
 ```
-*/5 * * * *     ~/bin/pinger.tcl
+*/5 * * * *     ~/bin/fping-alert/pinger.tcl
 ```
