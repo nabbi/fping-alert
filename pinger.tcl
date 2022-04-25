@@ -35,7 +35,7 @@ if { [file exists $database] } {
 
 
 ## fping the node list, wrap around a catch for it will throw errors if unreachable or dns not resolved
-catch {exec /usr/sbin/fping {*}$nodes} cmd
+catch {exec /usr/sbin/fping -r 5 {*}$nodes} cmd
 set fping [split $cmd "\n"]
 
 set now [clock seconds]
