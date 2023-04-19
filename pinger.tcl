@@ -20,7 +20,7 @@ proc mymail {from to subject body} {
     append msg \n $subject
     append msg $body
 
-    exec /usr/sbin/sendmail -oi -t << $msg
+    exec sendmail -oi -t -f $from << $msg
 }
 
 
@@ -86,9 +86,14 @@ if { [info exists down] } {
     }
 
     ## call the mail processor
-    mymail $from_email $to_email "Subject: $subject" $email
-    mymail $from_email $to_sms $subject $sms
-    
+    if { [info exists to_email] } {
+        mymail $from_email $to_email "Subject: $subject" $email
+    }
+
+    if { [info exists to_sms] } {
+        mymail $from_email $to_sms $subject $sms
+    }
+
     exit 2
 }
 
